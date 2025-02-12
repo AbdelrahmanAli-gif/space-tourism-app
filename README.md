@@ -2,7 +2,11 @@
 
 ## Overview
 
-This project is a responsive and interactive **Space Tourism Website**, built as part of the [Frontend Mentor Space Tourism Challenge](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj41xFs). The website provides an immersive user experience with multiple pages featuring space travel destinations, crew members, and available technologies.
+This project is a responsive and interactive **Space Tourism Website**, built as part of the [Frontend Mentor Space Tourism Challenge](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). The website provides an immersive user experience with multiple pages featuring space travel destinations, crew members, and available technologies.
+
+## Live Demo
+
+https://space-tourism-app-challenge.netlify.app/
 
 ## Features
 
