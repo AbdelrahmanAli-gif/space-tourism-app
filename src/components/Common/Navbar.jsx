@@ -11,6 +11,10 @@ const Navbar = () => {
     setIsOpen((current) => !current);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="bellefair-regular h-16 flex items-center tracking-wider w-full top-0 absolute mb-4 md:mt-4">
       <ul className="grid w-full grid-cols-6 items-center sm:grid-cols-8 md:grid-cols-12">
@@ -29,22 +33,32 @@ const Navbar = () => {
               isOpen ? "translate-x-0" : "translate-x-full"
             } backdrop-blur-md bg-white bg-opacity-5 fixed top-0 right-0 flex flex-col h-full w-2/3 justify-start gap-6 py-28 pl-6 text-xs sm:static sm:h-fit sm:flex-row sm:w-full sm:justify-center sm:py-0 sm:px-0 sm:translate-x-0 sm:text-base md:gap-12`}
           >
-            <NavLink to="/" className={`${styles.navbarLink} sm:py-6`}>
+            <NavLink
+              onClick={handleClose}
+              to="/"
+              className={`${styles.navbarLink} sm:py-6`}
+            >
               <span className="font-bold">00</span> HOME
             </NavLink>
 
             <NavLink
+              onClick={handleClose}
               to="/destination"
               className={`${styles.navbarLink} sm:py-6`}
             >
               <span className="font-bold">01</span> DESTINATION
             </NavLink>
 
-            <NavLink to="/crew" className={`${styles.navbarLink} sm:py-6`}>
+            <NavLink
+              onClick={handleClose}
+              to="/crew"
+              className={`${styles.navbarLink} sm:py-6`}
+            >
               <span className="font-bold">02</span> CREW
             </NavLink>
 
             <NavLink
+              onClick={handleClose}
               to="/technology"
               className={`${styles.navbarLink} sm:py-6`}
             >
