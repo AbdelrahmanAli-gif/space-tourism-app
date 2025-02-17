@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "bellefair": `Bellefair, serif`,
+        "barlow": `Barlow, serif`,
+      }
+    },
   },
   plugins: [],
 }

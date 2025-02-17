@@ -18,7 +18,7 @@ const TechnologyCard = () => {
   if (technologyLoading || stepsLoading) return <Spinner />;
 
   return (
-    <div className="bellefair-regular gap-8 grid grid-cols-6 grid-rows-4 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
+    <div className="font-bellefair gap-8 grid grid-cols-6 grid-rows-4 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
       <div className="flex flex-col items-center justify-center gap-10 col-start-2 col-span-4 row-start-3 row-span-2 sm:col-start-2 sm:col-span-6 sm:row-start-5 sm:row-span-3 md:col-start-2 md:col-span-6 md:row-start-3 md:row-span-7 md:flex-row">
         <TechnologyLinks steps={steps} active={parseInt(id)} />
         <div className="text-white text-center flex flex-col h-full justify-center items-center gap-4 md:gap-12 md:text-left md:items-start">
@@ -28,7 +28,7 @@ const TechnologyCard = () => {
           <p className="text-4xl md:text-6xl">
             {technology.name.toUpperCase()}
           </p>
-          <p className="barlow-regular text-violet-200 mb-10">
+          <p className="font-barlow text-violet-200 mb-10">
             {technology.description}
           </p>
         </div>

@@ -18,7 +18,7 @@ const DestinationCard = () => {
   if (destinationLoading || linksLoading) return <Spinner />;
 
   return (
-    <div className="bellefair-regular gap-8 grid grid-cols-6 grid-rows-2 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
+    <div className="font-bellefair gap-8 grid grid-cols-6 grid-rows-2 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
       <img
         src={destination.image}
         alt={destination.name.toUpperCase()}
@@ -29,9 +29,7 @@ const DestinationCard = () => {
           <DestinationLinks names={names} ids={ids} active={parseInt(id)} />
         </ul>
         <p className="text-5xl md:text-8xl">{destination.name.toUpperCase()}</p>
-        <p className="barlow-regular text-violet-200">
-          {destination.description}
-        </p>
+        <p className="font-barlow text-violet-200">{destination.description}</p>
         <hr className="w-full" />
         <div className="grid grid-cols-2 w-full">
           <div className="col-start-1 col-span-1">

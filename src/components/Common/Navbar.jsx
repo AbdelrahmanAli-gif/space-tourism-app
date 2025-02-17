@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bellefair-regular h-16 flex items-center tracking-wider w-full top-0 absolute mb-4 md:mt-4">
+    <nav className="font-bellefair h-16 flex items-center tracking-wider w-full top-0 absolute mb-4 md:mt-4">
       <ul className="grid w-full grid-cols-6 items-center sm:grid-cols-8 md:grid-cols-12">
         <li className="col-start-1 col-span-1 md:col-span-2">
           <Link
