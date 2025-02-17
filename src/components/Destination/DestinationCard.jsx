@@ -1,21 +1,12 @@
-import { useParams } from "react-router";
-import {
-  getAllDestinations,
-  getDestination,
-} from "../../services/apiDestination";
-import { useFetch } from "../../hooks/useFetch";
+import PropTypes from "prop-types";
 import Spinner from "../Common/Spinner";
 import DestinationLinks from "./DestinationLinks";
-import { useFind } from "../../hooks/useFind";
+import { useLoading } from "../../hooks/useLoading";
 
-const DestinationCard = () => {
-  const { id } = useParams();
-  const [destination, destinationLoading] = useFetch(getDestination, id);
-  const [[names, ids], linksLoading] = useFetch(getAllDestinations);
+const DestinationCard = ({ destination, links: [names, ids], active }) => {
+  const isLoading = useLoading();
 
-  useFind(id, ids, linksLoading);
-
-  if (destinationLoading || linksLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="font-bellefair gap-8 grid grid-cols-6 grid-rows-2 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
@@ -26,7 +17,7 @@ const DestinationCard = () => {
       />
       <div className="flex flex-col text-white items-center text-center justify-center gap-4 col-start-2 col-span-4 row-start-2 row-span-1 sm:col-start-2 sm:col-span-6 sm:row-start-5 sm:row-span-4 md:col-start-7 md:col-span-4 md:row-start-2 md:row-span-9 md:justify-between md:text-left md:items-start">
         <ul className="flex item-center gap-2 sm:gap-4 md:w-full">
-          <DestinationLinks names={names} ids={ids} active={parseInt(id)} />
+          <DestinationLinks names={names} ids={ids} active={parseInt(active)} />
         </ul>
         <p className="text-5xl md:text-8xl">{destination.name.toUpperCase()}</p>
         <p className="font-barlow text-violet-200">{destination.description}</p>
@@ -48,6 +39,12 @@ const DestinationCard = () => {
       </div>
     </div>
   );
+};
+
+DestinationCard.propTypes = {
+  destination: PropTypes.object.isRequired,
+  links: PropTypes.array.isRequired,
+  active: PropTypes.string.isRequired,
 };
 
 export default DestinationCard;

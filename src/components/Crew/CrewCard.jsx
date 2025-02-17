@@ -1,18 +1,12 @@
-import { useParams } from "react-router";
-import { useFetch } from "../../hooks/useFetch";
-import { getAllMembers, getMember } from "../../services/apiCrew";
 import Spinner from "../Common/Spinner";
 import CrewLinks from "./CrewLinks";
-import { useFind } from "../../hooks/useFind";
+import PropTypes from "prop-types";
+import { useLoading } from "../../hooks/useLoading";
 
-const CrewCard = () => {
-  const { id } = useParams();
-  const [member, memberLoading] = useFetch(getMember, id);
-  const [links, linksLoading] = useFetch(getAllMembers);
+const CrewCard = ({ member, links, active }) => {
+  const isLoading = useLoading();
 
-  useFind(id, links, linksLoading);
-
-  if (memberLoading || linksLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="font-bellefair gap-2 grid grid-cols-6 grid-rows-2 sm:grid-cols-8 sm:grid-rows-8 sm:gap-8 md:grid-cols-12 md:grid-rows-12">
@@ -25,7 +19,7 @@ const CrewCard = () => {
           <p className="font-barlow text-violet-200">{member.description}</p>
         </div>
         <div className="h-1/6 w-full flex items-center justify-center md:items-end md:justify-start gap-6 md:gap-12">
-          <CrewLinks links={links} active={parseInt(id)} />
+          <CrewLinks links={links} active={parseInt(active)} />
         </div>
       </div>
       <img
@@ -35,6 +29,12 @@ const CrewCard = () => {
       />
     </div>
   );
+};
+
+CrewCard.propTypes = {
+  member: PropTypes.object.isRequired,
+  links: PropTypes.array.isRequired,
+  active: PropTypes.string.isRequired,
 };
 
 export default CrewCard;

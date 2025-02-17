@@ -1,26 +1,17 @@
-import { useParams } from "react-router";
-import { useFetch } from "../../hooks/useFetch";
-import {
-  getAllTechnologies,
-  getTechnology,
-} from "../../services/apiTechnology";
-import { useFind } from "../../hooks/useFind";
 import Spinner from "../Common/Spinner";
 import TechnologyLinks from "./TechnologyLinks";
+import PropTypes from "prop-types";
+import { useLoading } from "../../hooks/useLoading";
 
-const TechnologyCard = () => {
-  const { id } = useParams();
-  const [technology, technologyLoading] = useFetch(getTechnology, id);
-  const [steps, stepsLoading] = useFetch(getAllTechnologies);
+const TechnologyCard = ({ technology, steps, active }) => {
+  const isLoading = useLoading();
 
-  useFind(id, steps, stepsLoading);
-
-  if (technologyLoading || stepsLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="font-bellefair gap-8 grid grid-cols-6 grid-rows-4 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
       <div className="flex flex-col items-center justify-center gap-10 col-start-2 col-span-4 row-start-3 row-span-2 sm:col-start-2 sm:col-span-6 sm:row-start-5 sm:row-span-3 md:col-start-2 md:col-span-6 md:row-start-3 md:row-span-7 md:flex-row">
-        <TechnologyLinks steps={steps} active={parseInt(id)} />
+        <TechnologyLinks steps={steps} active={parseInt(active)} />
         <div className="text-white text-center flex flex-col h-full justify-center items-center gap-4 md:gap-12 md:text-left md:items-start">
           <p className="text-gray-500 text-2xl md:text-4xl">
             THE TERMINOLOGY...
@@ -44,6 +35,12 @@ const TechnologyCard = () => {
       ></div>
     </div>
   );
+};
+
+TechnologyCard.propTypes = {
+  technology: PropTypes.object.isRequired,
+  steps: PropTypes.array.isRequired,
+  active: PropTypes.string.isRequired,
 };
 
 export default TechnologyCard;
