@@ -1,7 +1,5 @@
 import { Link } from "react-router";
 
-const width = window.innerWidth;
-
 const Homepage = () => {
   return (
     <>
