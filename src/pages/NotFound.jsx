@@ -15,13 +15,7 @@ const NotFound = () => {
   }, [time, navigate]);
 
   return (
-    <div
-      style={{
-        backgroundImage: `url('/Not-Found.jpg')`,
-        backgroundBlendMode: "multiply",
-      }}
-      className="bellefair-regular page-container bg-gray-600 flex flex-col items-center justify-center text-center text-white"
-    >
+    <div className="bg-[url('/Not-Found.jpg')] bg-blend-multiply bellefair-regular page-container bg-gray-600 flex flex-col items-center justify-center text-center text-white">
       <h1 className="text-2xl sm:text-4xl">404 - PAGE NOT FOUND</h1>
       <p className="barlow-regular text-violet-200 mt-4 text-base sm:text-lg">
         Redirecting to Home in {time}.

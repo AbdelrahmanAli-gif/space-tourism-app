@@ -2,17 +2,10 @@ import { Link } from "react-router";
 
 const width = window.innerWidth;
 
-const backgroundStyles = {
-  backgroundImage: `url('/Homepage-${width > 767 ? "Desktop" : "Mobile"}.png')`,
-};
-
 const Homepage = () => {
   return (
     <>
-      <div
-        style={backgroundStyles}
-        className="page-container grid grid-cols-6 grid-rows-6 pt-28 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12"
-      >
+      <div className="bg-[url('/Homepage-Mobile.png')] md:bg-[url('/Homepage-Desktop.png')] page-container grid grid-cols-6 grid-rows-6 pt-28 sm:grid-cols-8 sm:grid-rows-8 md:grid-cols-12 md:grid-rows-12">
         <div className="px-4 flex flex-col items-center justify-center text-center text-white col-start-1 col-span-full row-start-1 row-span-4 sm:row-start-2 md:col-start-2 md:col-span-5 md:row-span-full md:text-left md:items-start">
           <p className="font-bellefair text-base sm:text-2xl tracking-wider">
             SO, YOU WANT TO TRAVEL TO

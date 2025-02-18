@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,16 +26,16 @@ const Navbar = () => {
           </Link>
         </li>
 
-        <li className="col-start-6 col-span-1 flex justify-center items-center text-white sm:col-start-2 sm:col-span-full md:col-start-3 lg:col-start-6">
+        <li className="col-start-6 col-span-1 flex justify-center items-center text-white sm:col-start-2 sm:col-span-full md:col-start-3 lg:col-start-6 group">
           <div
-            className={` ${styles.navLinksContainer} ${
+            className={`${
               isOpen ? "translate-x-0" : "translate-x-full"
-            } backdrop-blur-md bg-white bg-opacity-5 fixed top-0 right-0 flex flex-col h-full w-2/3 justify-start gap-6 py-28 pl-6 text-xs sm:static sm:h-fit sm:flex-row sm:w-full sm:justify-center sm:py-0 sm:px-0 sm:translate-x-0 sm:text-base md:gap-12`}
+            } [&_.active]:border-r-4 [&_.active]:border-white [&_.active]:sm:border-b-4 [&_.active]:sm:border-r-0 [&._active]:sm:border-white transition duration-500 backdrop-blur-md bg-white bg-opacity-5 fixed top-0 right-0 flex flex-col h-full w-2/3 justify-start gap-6 py-28 pl-6 text-xs sm:static sm:h-fit sm:flex-row sm:w-full sm:justify-center sm:py-0 sm:px-0 sm:translate-x-0 sm:text-base md:gap-12`}
           >
             <NavLink
               onClick={handleClose}
               to="/"
-              className={`${styles.navbarLink} sm:py-6`}
+              className="hover:border-gray-500 hover:border-r-4 sm:py-6 sm:hover:border-b-4 sm:hover:border-r-0"
             >
               <span className="font-bold">00</span> HOME
             </NavLink>
@@ -44,7 +43,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleClose}
               to="/destination"
-              className={`${styles.navbarLink} sm:py-6`}
+              className="hover:border-gray-500 hover:border-r-4 sm:py-6 sm:hover:border-b-4 sm:hover:border-r-0"
             >
               <span className="font-bold">01</span> DESTINATION
             </NavLink>
@@ -52,7 +51,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleClose}
               to="/crew"
-              className={`${styles.navbarLink} sm:py-6`}
+              className="hover:border-gray-500 hover:border-r-4 sm:py-6 sm:hover:border-b-4 sm:hover:border-r-0"
             >
               <span className="font-bold">02</span> CREW
             </NavLink>
@@ -60,7 +59,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleClose}
               to="/technology"
-              className={`${styles.navbarLink} sm:py-6`}
+              className="hover:border-gray-500 hover:border-r-4 sm:py-6 sm:hover:border-b-4 sm:hover:border-r-0"
             >
               <span className="font-bold">03</span> TECHNOLOGY
             </NavLink>

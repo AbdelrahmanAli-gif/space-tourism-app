@@ -3,18 +3,11 @@ import PageTitle from "../components/Common/PageTitle";
 import { getAllDestinations, getDestination } from "../services/apiDestination";
 import { redirect, useLoaderData } from "react-router";
 
-const backgroundStyles = {
-  backgroundImage: `url('/Destination.png')`,
-};
-
 const DestinationPage = () => {
   const [destination, links, active] = useLoaderData();
 
   return (
-    <div
-      style={backgroundStyles}
-      className="page-container flex flex-col gap-8 pt-28"
-    >
+    <div className="bg-[url('/Destination.png')] page-container flex flex-col gap-8 pt-28">
       <PageTitle number="01" title="PICK YOUR DESTINATION" />
       <DestinationCard
         destination={destination}
